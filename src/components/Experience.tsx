@@ -5,8 +5,8 @@ export default function Experience() {
     return (
         <section id="experience" className={`container ${styles.section}`}>
             <div className={styles.header}>
-                <h2 className={styles.title}>Full-Time Impact</h2>
-                <p style={{ color: 'var(--text-secondary)' }}>Strategic Leadership & Operational Execution</p>
+                <h2 className={styles.title}>System Architecture & Impact</h2>
+                <p style={{ color: 'var(--text-secondary)' }}>How I engineer value, handle risk, and operationalize trust.</p>
             </div>
 
             <div className={styles.timeline}>
@@ -20,13 +20,29 @@ export default function Experience() {
                             </div>
                         </div>
 
-                        <p className={styles.description}>{job.description}</p>
+                        {/* If there is a deep dive, show that PROMINENTLY */}
+                        {job.systemDeepDive ? (
+                            <div className={styles.deepDive}>
+                                <h4 className={styles.deepDiveTitle}>{job.systemDeepDive.title}</h4>
+                                <div className={styles.deepDiveContent}>
+                                    {job.systemDeepDive.content.map((block, i) => (
+                                        <p key={i} dangerouslySetInnerHTML={{
+                                            __html: block.replace(/\*\*(.*?)\*\*/g, '<strong style="color:var(--primary)">$1</strong>')
+                                        }} />
+                                    ))}
+                                </div>
+                            </div>
+                        ) : (
+                            <p className={styles.description}>{job.description}</p>
+                        )}
 
-                        <ul className={styles.achievements}>
-                            {job.achievements.map((item, i) => (
-                                <li key={i}>{item}</li>
-                            ))}
-                        </ul>
+                        {!job.systemDeepDive && (
+                            <ul className={styles.achievements}>
+                                {job.achievements.map((item, i) => (
+                                    <li key={i}>{item}</li>
+                                ))}
+                            </ul>
+                        )}
                     </div>
                 ))}
             </div>

@@ -7,12 +7,12 @@ export default function Projects() {
             <div className="container">
                 <h2 className={styles.title}>The Builder&apos;s Lab</h2>
                 <p className={styles.intro}>
-                    I don&apos;t just manage; I build to understand. These personal projects are my playground for testing market theories and operational logic.
+                    I build to prove concepts. These are not just apps; they are market experiments in Fairness, Trust, and Liquidity.
                 </p>
 
                 <div className={styles.grid}>
                     {portfolioData.projects.map((project, index) => (
-                        <div key={index} className={styles.card}>
+                        <div key={index} className={`${styles.card} ${project.caseStudy ? styles.expandedCard : ''}`}>
                             <div className={styles.cardHeader}>
                                 <div className={styles.projectTitle}>
                                     {project.title}
@@ -21,6 +21,19 @@ export default function Projects() {
                             </div>
 
                             <p className={styles.description}>{project.description}</p>
+
+                            {project.caseStudy && (
+                                <div className={styles.caseStudy}>
+                                    <div className={styles.csBlock}>
+                                        <span className={styles.csLabel}>The Context</span>
+                                        <p>{project.caseStudy.context}</p>
+                                    </div>
+                                    <div className={styles.csBlock}>
+                                        <span className={styles.csLabel}>The Strategy</span>
+                                        <p>{project.caseStudy.strategy}</p>
+                                    </div>
+                                </div>
+                            )}
 
                             <div className={styles.tags}>
                                 {project.impact.map((tag, i) => (

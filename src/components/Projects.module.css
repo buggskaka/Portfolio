@@ -18,7 +18,8 @@
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    /* Slightly wider cards */
     gap: 2rem;
 }
 
@@ -32,6 +33,11 @@
     flex-direction: column;
 }
 
+.expandedCard {
+    grid-row: span 2;
+    /* Allow bigger cards to take up more vertical space if needed */
+}
+
 .card:hover {
     transform: translateY(-5px);
     border-color: var(--primary);
@@ -42,7 +48,7 @@
 }
 
 .projectTitle {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
     display: flex;
@@ -61,11 +67,38 @@
 }
 
 .description {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
+    color: var(--foreground);
+    font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 2rem;
-    flex-grow: 1;
+}
+
+/* Case Study Stuff */
+.caseStudy {
+    background: var(--surface-highlight);
+    padding: 1.5rem;
+    border-radius: 6px;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.csLabel {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--secondary);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.csBlock p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
 }
 
 .tags {
@@ -73,6 +106,8 @@
     flex-wrap: wrap;
     gap: 0.5rem;
     margin-bottom: 1.5rem;
+    margin-top: auto;
+    /* Push to bottom */
 }
 
 .tag {
@@ -88,7 +123,6 @@
 .links {
     display: flex;
     gap: 1rem;
-    margin-top: auto;
 }
 
 .link {
