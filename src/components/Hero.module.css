@@ -1,0 +1,116 @@
+.hero {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 4rem;
+}
+
+.glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: var(--primary-glow);
+    filter: blur(120px);
+    border-radius: 50%;
+    opacity: 0.15;
+    top: -100px;
+    right: -100px;
+    z-index: -1;
+    animation: pulse 10s ease-in-out infinite;
+}
+
+.glow2 {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: var(--secondary);
+    filter: blur(120px);
+    border-radius: 50%;
+    opacity: 0.1;
+    bottom: -50px;
+    left: -100px;
+    z-index: -1;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.15;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.25;
+        transform: scale(1.1);
+    }
+}
+
+.label {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.title {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    max-width: 900px;
+}
+
+.subtitle {
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+}
+
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+    border-top: 1px solid var(--border);
+    padding-top: 2rem;
+}
+
+.statItem h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--foreground);
+    margin-bottom: 0.5rem;
+}
+
+.statItem p {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.ctaButton {
+    display: inline-flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: var(--foreground);
+    color: var(--background);
+    font-weight: 600;
+    border-radius: 4px;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.ctaButton:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}

@@ -1,0 +1,91 @@
+.section {
+    padding: 6rem 0;
+}
+
+.header {
+    margin-bottom: 4rem;
+}
+
+.title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    border-left: 1px solid var(--border);
+    padding-left: 2rem;
+    position: relative;
+}
+
+.item {
+    position: relative;
+}
+
+.item::before {
+    content: '';
+    position: absolute;
+    left: -2.35rem;
+    /* Adjust based on padding/border */
+    top: 0.5rem;
+    width: 0.75rem;
+    height: 0.75rem;
+    background: var(--primary);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--primary);
+}
+
+.roleHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.company {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--foreground);
+}
+
+.role {
+    font-size: 1.125rem;
+    color: var(--primary);
+    font-family: var(--font-mono);
+}
+
+.period {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.description {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    max-width: 800px;
+}
+
+.achievements {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.achievements li {
+    position: relative;
+    padding-left: 1.5rem;
+    color: var(--foreground);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.achievements li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--secondary);
+}
