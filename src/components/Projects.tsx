@@ -35,6 +35,20 @@ export default function Projects() {
                                 </div>
                             )}
 
+                            {/* Add System Deep Dive for Projects too */}
+                            {project.systemDeepDive && (
+                                <div className={styles.deepDive}>
+                                    <h4 className={styles.deepDiveTitle}>{project.systemDeepDive.title}</h4>
+                                    <div className={styles.deepDiveContent}>
+                                        {project.systemDeepDive.content.map((block, i) => (
+                                            <p key={i} dangerouslySetInnerHTML={{
+                                                __html: block.replace(/\*\*(.*?)\*\*/g, '<strong style="color:var(--primary)">$1</strong>')
+                                            }} />
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+
                             <div className={styles.tags}>
                                 {project.impact.map((tag, i) => (
                                     <span key={i} className={styles.tag}>{tag}</span>

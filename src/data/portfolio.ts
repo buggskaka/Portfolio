@@ -122,11 +122,20 @@ export const portfolioData = {
       title: "Peeramp",
       role: "Founder & Builder",
       description: "Secure P2P Escrow Marketplace for crypto assets.",
-      impact: ["No-Wallet Architecture", "Secure Settlement"],
-      tech: ["Crypto", "Escrow"],
+      impact: ["No-Wallet Architecture", "TMI Risk Engine", "Auto-Recovery"],
+      tech: ["Crypto", "Escrow", "Fraud Detection"],
       caseStudy: {
-        context: "Crypto P2P is notoriously risky. Traditional wallet architectures create 'honeypots' for hackers and regulatory liabilities for operators.",
-        strategy: "I architected a 'No-Wallet' system. We don't hold user funds in stagnant custodial wallets. Instead, funds are locked on-chain in smart contracts and released only via off-chain operational triggers (signatures). This handles fraud and risk by ensuring assets are never in 'limbo'—they are either in the user's control or locked in the deal flow."
+        context: "Crypto P2P is notoriously risky. Traditional operational models create 'honeypots' for hackers, suffer from opaque liquidity management, and lack real-time fraud intervention.",
+        strategy: "I architected a 'No-Wallet' financial OS that eliminates custodial liability while enforcing rigorous security."
+      },
+      systemDeepDive: {
+        title: "The Financial Operating System (FOS) Architecture",
+        content: [
+          "**1. No-Fiat-Wallet Policy**: To zero-out regulatory liability, I designed a system where users *never* hold fiat balances. All NGN is settled immediately to bank accounts via an automated Debit/Credit ledger sequence (Trade Sell (CR) -> Settlement (DR)).",
+          "**2. Transaction Monitoring Intelligence (TMI)**: Built a custom risk engine evaluating **18 rule categories** (Velocity, Pattern, AML, etc.) in real-time. It doesn't just flag; it auto-acts. High-severity alerts trigger immediate account freezes or 'PND' (Place on Notice) blocks before payouts can occur.",
+          "**3. Fraud Auto-Recovery**: Designed a 'Shortfall Capture' logic. If a user withdraws fraudulent funds, the system tracks the negative balance. Any future inflow (≥70% of shortfall) is automatically seized and moved to a recovery wallet, displaying a green 'Auto-Recovered' badge to admins.",
+          "**4. Treasury 'Waterfall' Liquidity**: Segregated 'Operational Wallets' (for instant fulfillment) from 'Revenue Wallets' (fees). The system calculates liquidity gaps and alerts for rebalancing, ensuring 99.9% fulfillment uptime without over-capitalizing hot wallets."
+        ]
       },
       link: "https://www.getpeeramp.com/",
       github: "https://github.com/DeCompany-x/peeramp"
